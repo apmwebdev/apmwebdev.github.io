@@ -1,6 +1,6 @@
 {
-  "name": "portfolio",
-  "homepage": "https://apmwebdev.github.io/portfolio/",
+  "name": "apmwebdev.github.io",
+  "homepage": "https://apmwebdev.github.io/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
