@@ -26,9 +26,9 @@
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  //line-height: 2.7;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -37,6 +37,7 @@
   -webkit-text-size-adjust: 100%;
 
   scrollbar-width: thin;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -86,6 +87,10 @@ h6 {
   font-size: 18px;
 }
 
+p {
+  line-height: 1.5;
+}
+
 button {
   //@include mono;
   border-radius: 8px;
@@ -94,7 +99,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   //font-family: inherit;
-  cursor: pointer;
+  //cursor: pointer;
   transition: border-color 0.25s;
 }
 
@@ -103,8 +108,8 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-iconify-icon {
-  //font-size: 1.2em;
+em {
+  font-style: italic;
 }
 
 .centered {
