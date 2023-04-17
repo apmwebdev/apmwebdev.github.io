@@ -10,6 +10,7 @@ $soft-bg: hsl(0, 25%, 97%); // #F9F5F5
 $bg2: hsl(0, 15%, 93%);
 //$soft-text: hsl(353, 19%, 46%); // Original (66% L instead of 46%): #B9989C
 $soft-text: hsl($main-hue, 10%, 36%); // Original (66% L instead of 46%): #B9989C
+$soft-shadow: hsl($main-hue, 15%, 36%, 50%);
 $soft-main-accent: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
 $soft-text-light: hsl($main-hue, 15%, 49%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
 $soft-text-dark: hsl($main-hue, 29%, 25%); // #414141
@@ -19,15 +20,19 @@ $soft-accent2: hsl(291, 45%, 70%); // #CA8FD5
 //$soft-accent2-light: hsl($accent-hue2, 17%, 87%); // hsl(203, 37%, 77%);
 //$soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
 
-@mixin negative_color {
+@mixin dark_color {
   background-color: $soft-text;
   color: $soft-bg;
 }
 
+@mixin light_color {
+  background-color: $bg2;
+  color: $soft-text;
+}
+
 :root {
   color-scheme: light dark;
-  color: $soft-text;
-  background-color: $bg2;
+  @include light_color;
 }
 
 a {
@@ -71,21 +76,22 @@ header {
 }
 
 .popout {
-  @include negative_color;
+  @include dark_color;
 }
 
 .card {
-  border: 3px solid $soft-main-accent;
+  background-color: $soft-bg;
+  border: 3px solid $soft-shadow;
+  box-shadow: 4px 4px 4px $soft-shadow;
   .icon-button-container {
     background-color: $soft-accent1-dark;
     color: $soft-bg;
   }
   .tags span {
-    $accent-hue2: $main-hue + 210;
-    $soft-accent2-light: hsl($accent-hue2, 7%, 87%); // hsl(203, 37%, 77%);
-    $soft-accent2-dark: hsl($accent-hue2, 27%, 27%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
-    color: $soft-accent2-dark;
-    background-color: $soft-accent2-light;
-    border: 2px solid hsl($accent-hue2, 7%, 82%);
+    $accent-hue2: $main-hue + 180;
+    $soft-accent2-light: hsl($accent-hue2, 7%, 94%); // hsl(203, 37%, 77%);
+    $soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
+    color: $soft-accent2-light;
+    background-color: $soft-accent2-dark;
   }
 }
