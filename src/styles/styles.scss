@@ -204,3 +204,23 @@ aside {
     padding: 4px 8px;
   }
 }
+
+.web-resume {
+  ul {
+    list-style-type: disc;
+    //list-style-position: inside;
+  }
+  .name {
+    text-align: center;
+  }
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: stretch;
+  }
+}
