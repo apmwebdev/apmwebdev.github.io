@@ -33,6 +33,10 @@ $soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7
   color: $soft-text;
 }
 
+@mixin shadow {
+  box-shadow: 4px 4px 4px $soft-shadow;
+}
+
 :root {
   color-scheme: light dark;
   @include light_color;
@@ -56,6 +60,8 @@ button {
 header {
   background-color: $bg2;
   border-bottom: 2px solid $soft-main-accent;
+  // $soft-main-accent: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
+  box-shadow: 0 2px 2px hsl($main-hue, 10%, 70%, 0.5);
 
   .left {
     border: 2px solid $soft-accent1-dark;
@@ -80,12 +86,17 @@ header {
 
 .popout {
   @include dark_color;
+  @include shadow;
+}
+
+.shadow-button, .card-buttons a {
+  box-shadow: 2px 2px 2px $soft-shadow;
 }
 
 .card {
+  @include shadow;
   background-color: $soft-bg;
   border: 3px solid $soft-shadow;
-  box-shadow: 4px 4px 4px $soft-shadow;
   .icon-button-container {
     background-color: $soft-accent1-dark;
     color: $soft-bg;
@@ -97,6 +108,7 @@ header {
 }
 
 .web-resume {
+  @include shadow;
   background-color: $soft-bg;
   border: 3px solid $soft-shadow;
   h2 {
