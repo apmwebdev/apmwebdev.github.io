@@ -17,6 +17,9 @@ $soft-text-dark: hsl($main-hue, 29%, 25%); // #414141
 $soft-accent1-lighter: hsl($accent-hue, 47%, 47%); // #25B7B8 -> hsl(180, 67%, 43%)
 $soft-accent1-dark: hsl($accent-hue, 67%, 42%); // #25B7B8 -> hsl(180, 67%, 43%)
 $soft-accent2: hsl(291, 45%, 70%); // #CA8FD5
+$accent-hue2: $main-hue + 180;
+$soft-accent2-light: hsl($accent-hue2, 7%, 94%); // hsl(203, 37%, 77%);
+$soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
 //$soft-accent2-light: hsl($accent-hue2, 17%, 87%); // hsl(203, 37%, 77%);
 //$soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
 
@@ -88,10 +91,22 @@ header {
     color: $soft-bg;
   }
   .tags span {
-    $accent-hue2: $main-hue + 180;
-    $soft-accent2-light: hsl($accent-hue2, 7%, 94%); // hsl(203, 37%, 77%);
-    $soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
     color: $soft-accent2-light;
     background-color: $soft-accent2-dark;
+  }
+}
+
+.web-resume {
+  background-color: $soft-bg;
+  border: 3px solid $soft-shadow;
+  h2 {
+    border-bottom: 2px solid $soft-text;
+  }
+  .job-title, .degree, .skill-label {
+    color: $soft-accent2-dark;
+    //color: $soft-text-light;
+  }
+  .company, .school {
+    color: $soft-text-light;
   }
 }
