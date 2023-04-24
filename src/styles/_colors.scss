@@ -61,7 +61,7 @@ header {
   background-color: $bg2;
   border-bottom: 2px solid $soft-main-accent;
   // $soft-main-accent: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
-  box-shadow: 0 2px 2px hsl($main-hue, 10%, 70%, 0.5);
+  //box-shadow: 0 2px 2px hsl($main-hue, 10%, 70%, 0.5);
 
   .left {
     border: 2px solid $soft-accent1-dark;
@@ -86,7 +86,7 @@ header {
 
 .popout {
   @include dark_color;
-  @include shadow;
+  //@include shadow;
 }
 
 .shadow-button, .card-buttons a {
@@ -94,7 +94,7 @@ header {
 }
 
 .card {
-  @include shadow;
+  //@include shadow;
   background-color: $soft-bg;
   border: 3px solid $soft-shadow;
   .icon-button-container {
@@ -108,7 +108,7 @@ header {
 }
 
 .web-resume {
-  @include shadow;
+  //@include shadow;
   background-color: $soft-bg;
   border: 3px solid $soft-shadow;
   h2 {
