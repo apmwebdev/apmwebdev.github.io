@@ -1,40 +1,28 @@
-$export-bg: #f9f5f5;
-$export-text: #8c5f64;
-$export-accent1-light: #3b6681;
-
 $main-hue: 0;
 $accent-hue: $main-hue + 15;
-//$accent-hue2: $main-hue + 150;
-//Soft colors
-$soft-bg: hsl(0, 25%, 97%); // #F9F5F5
-$bg2: hsl(0, 15%, 93%);
-//$soft-text: hsl(353, 19%, 46%); // Original (66% L instead of 46%): #B9989C
-$soft-text: hsl($main-hue, 10%, 36%); // Original (66% L instead of 46%): #B9989C
-$soft-shadow: hsl($main-hue, 15%, 36%, 50%);
-$soft-main-accent: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
-$soft-text-light: hsl($main-hue, 15%, 49%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
-$soft-text-dark: hsl($main-hue, 29%, 25%); // #414141
-$soft-accent1-lighter: hsl($accent-hue, 47%, 47%); // #25B7B8 -> hsl(180, 67%, 43%)
-$soft-accent1-dark: hsl($accent-hue, 67%, 42%); // #25B7B8 -> hsl(180, 67%, 43%)
-$soft-accent2: hsl(291, 45%, 70%); // #CA8FD5
 $accent-hue2: $main-hue + 180;
-$soft-accent2-light: hsl($accent-hue2, 7%, 94%); // hsl(203, 37%, 77%);
-$soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
-//$soft-accent2-light: hsl($accent-hue2, 17%, 87%); // hsl(203, 37%, 77%);
-//$soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
+$main-lightest: hsl($main-hue, 25%, 97%); // #F9F5F5
+$main-light: hsl($main-hue, 15%, 93%);
+$main-darkest: hsl($main-hue, 10%, 36%); // Original (66% L instead of 46%): #B9989C
+$main-shadow: hsl($main-hue, 15%, 36%, 50%);
+$main-mid-border: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
+$main-mid: hsl($main-hue, 15%, 49%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
+$accent1-dark: hsl($accent-hue, 67%, 42%); // #25B7B8 -> hsl(180, 67%, 43%)
+$accent2-light: hsl($accent-hue2, 7%, 94%); // hsl(203, 37%, 77%);
+$accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
 
 @mixin dark_color {
-  background-color: $soft-text;
-  color: $soft-bg;
+  background-color: $main-darkest;
+  color: $main-lightest;
 }
 
 @mixin light_color {
-  background-color: $bg2;
-  color: $soft-text;
+  background-color: $main-light;
+  color: $main-darkest;
 }
 
 @mixin shadow {
-  box-shadow: 4px 4px 4px $soft-shadow;
+  box-shadow: 4px 4px 4px $main-shadow;
 }
 
 :root {
@@ -43,82 +31,77 @@ $soft-accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7
 }
 
 a {
-  color: $soft-accent1-dark;
-  //border-bottom: 2px solid transparent;
+  color: $accent1-dark;
 }
 
 a:hover {
-  //color: $d-a-hov;
-  //border-bottom: 2px solid $soft-accent1-dark;
 }
 
 button {
-  background-color: $soft-accent1-dark;
+  background-color: $accent1-dark;
   font-weight: bold;
 }
 
 header {
-  background-color: $bg2;
-  border-bottom: 2px solid $soft-main-accent;
-  // $soft-main-accent: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
-  //box-shadow: 0 2px 2px hsl($main-hue, 10%, 70%, 0.5);
+  background-color: $main-light;
+  border-bottom: 2px solid $main-mid-border;
 
   .left {
-    border: 2px solid $soft-accent1-dark;
+    border: 2px solid $accent1-dark;
   }
+}
+
+.section-heading {
+  border-bottom: 2px solid $main-mid;
 }
 
 .hero {
   .opening {
   }
   .headline {
-    color: $soft-text;
+    color: $main-darkest;
   }
   .subtitle {
-    color: $soft-text-light;
+    color: $main-mid;
   }
 }
 
 .icon-button {
-  color: $soft-bg;
-  background-color: $soft-accent1-dark;
+  color: $main-lightest;
+  background-color: $accent1-dark;
 }
 
 .popout {
   @include dark_color;
-  //@include shadow;
 }
 
 .shadow-button, .card-buttons a {
-  box-shadow: 2px 2px 2px $soft-shadow;
+  box-shadow: 2px 2px 2px $main-shadow;
 }
 
 .card {
-  //@include shadow;
-  background-color: $soft-bg;
-  border: 3px solid $soft-shadow;
+  background-color: $main-lightest;
+  border: 3px solid $main-shadow;
   .icon-button-container {
-    background-color: $soft-accent1-dark;
-    color: $soft-bg;
+    background-color: $accent1-dark;
+    color: $main-lightest;
   }
   .tags span {
-    color: $soft-accent2-light;
-    background-color: $soft-accent2-dark;
+    color: $accent2-light;
+    background-color: $accent2-dark;
   }
 }
 
 .web-resume {
-  //@include shadow;
-  background-color: $soft-bg;
-  border: 3px solid $soft-shadow;
+  background-color: $main-lightest;
+  border: 3px solid $main-shadow;
   h2 {
-    border-bottom: 2px solid $soft-text;
+    border-bottom: 2px solid $main-darkest;
   }
   .job-title, .degree, .skill-label {
-    color: $soft-accent2-dark;
-    //color: $soft-text-light;
+    color: $accent2-dark;
   }
   .company, .school {
-    color: $soft-text-light;
+    color: $main-mid;
   }
 }
