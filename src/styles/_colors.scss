@@ -1,28 +1,35 @@
 $main-hue: 0;
 $accent-hue: $main-hue + 15;
 $accent-hue2: $main-hue + 180;
+
+/* Light scheme and universal colors */
 $main-lightest: hsl($main-hue, 25%, 97%); // #F9F5F5
 $main-light: hsl($main-hue, 15%, 93%);
-$main-darkest: hsl($main-hue, 10%, 36%); // Original (66% L instead of 46%): #B9989C
-$main-shadow: hsl($main-hue, 15%, 36%, 50%);
+$main-dark: hsl($main-hue, 10%, 36%); // Original (66% L instead of 46%): #B9989C
+$main-light-shadow: hsl($main-hue, 15%, 36%, 50%);
 $main-mid-border: hsl($main-hue, 10%, 79%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
 $main-mid: hsl($main-hue, 15%, 49%); // rgb(217,199,201) -> hsl(353, 19%, 82%)
 $accent1-dark: hsl($accent-hue, 67%, 42%); // #25B7B8 -> hsl(180, 67%, 43%)
 $accent2-light: hsl($accent-hue2, 7%, 94%); // hsl(203, 37%, 77%);
 $accent2-dark: hsl($accent-hue2, 47%, 32%); // hsl(203, 67%, 32%); // #25B7B8 -> hsl(180, 67%, 43%)
 
+/* Dark scheme-only colors */
+$main-darkest: hsl($main-hue, 10%, 25%); // Original (66% L instead of 46%): #B9989C
+$main-darker: hsl($main-hue, 8%, 34%); // Original (66% L instead of 46%): #B9989C
+$main-dark-shadow: hsl($main-hue, 5%, 15%, 50%);
+$main-dark-light: hsl($main-hue, 10%, 83%);
+$accent1-light: hsl($accent-hue, 87%, 72%);
+$accent2-mid: hsl($accent-hue2, 46%, 62%);
+$accent2-darker: hsl($accent-hue2, 52%, 15%);
+
 @mixin dark_color {
   background-color: $main-darkest;
-  color: $main-lightest;
+  color: $main-dark-light;
 }
 
 @mixin light_color {
   background-color: $main-light;
-  color: $main-darkest;
-}
-
-@mixin shadow {
-  box-shadow: 4px 4px 4px $main-shadow;
+  color: $main-dark;
 }
 
 :root {
@@ -34,12 +41,9 @@ a {
   color: $accent1-dark;
 }
 
-a:hover {
-}
-
 button {
   background-color: $accent1-dark;
-  font-weight: bold;
+  color: $main-light;
 }
 
 header {
@@ -56,10 +60,8 @@ header {
 }
 
 .hero {
-  .opening {
-  }
   .headline {
-    color: $main-darkest;
+    color: $main-dark;
   }
   .subtitle {
     color: $main-mid;
@@ -72,16 +74,18 @@ header {
 }
 
 .popout {
-  @include dark_color;
+  //@include dark_color;
+  background-color: $main-dark;
+  color: $main-light;
 }
 
 .shadow-button, .card-buttons a {
-  box-shadow: 2px 2px 2px $main-shadow;
+  box-shadow: 2px 2px 2px $main-light-shadow;
 }
 
 .card {
   background-color: $main-lightest;
-  border: 3px solid $main-shadow;
+  border: 3px solid $main-light-shadow;
   .icon-button-container {
     background-color: $accent1-dark;
     color: $main-lightest;
@@ -94,14 +98,93 @@ header {
 
 .web-resume {
   background-color: $main-lightest;
-  border: 3px solid $main-shadow;
+  border: 3px solid $main-light-shadow;
   h2 {
-    border-bottom: 2px solid $main-darkest;
+    border-bottom: 2px solid $main-dark;
   }
   .job-title, .degree, .skill-label {
     color: $accent2-dark;
   }
   .company, .school {
     color: $main-mid;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include dark_color;
+  }
+
+  a {
+    color: $accent1-light;
+  }
+
+  button {
+    background-color: $accent1-light;
+    color: $main-darkest;
+  }
+
+  header {
+    background-color: $main-darkest;
+    border-bottom: 2px solid $main-mid-border;
+
+    .left {
+      border: 2px solid $accent1-light;
+    }
+  }
+
+  .section-heading {
+    border-bottom: 2px solid $main-mid-border;
+  }
+
+  .hero {
+    .headline {
+      color: $main-dark-light;
+    }
+    .subtitle {
+      color: $main-lightest;
+    }
+  }
+
+  .icon-button {
+    color: $main-darkest;
+    background-color: $accent1-light;
+  }
+
+  .popout {
+    //@include light_color;
+    background-color: $main-dark-light;
+    color: $main-darkest;
+  }
+
+  .shadow-button, .card-buttons a {
+    box-shadow: 2px 2px 2px $main-dark-shadow;
+  }
+
+  .card {
+    background-color: $main-darker;
+    border: 3px solid $main-dark-light;
+    .icon-button-container {
+      background-color: $accent1-light;
+      color: $main-darkest;
+    }
+    .tags span {
+      color: $accent2-darker;
+      background-color: $accent2-mid;
+    }
+  }
+
+  .web-resume {
+    background-color: $main-darker;
+    border: 3px solid $main-dark-light;
+    h2 {
+      border-bottom: 2px solid $main-dark-light;
+    }
+    .job-title, .degree, .skill-label {
+      color: $accent2-mid;
+    }
+    .company, .school {
+      color: $main-lightest;
+    }
   }
 }
